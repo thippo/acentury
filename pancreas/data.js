@@ -40,4 +40,5 @@ const blood1 = {
     '2022-04-11': {ALT: 25, TP: 75, Alb: 48, AG: 1.8, TBil: 33.2, DBil: 8.4, GGT: "", ALP: "", AST: "", TBA: "", LD: "", ChE: "", K: "", Na: "", Cl: "", TCO2: "", Ca: "", cCa: "", Mg: "", Cr: 83, Urea: 4.11, Glu: "", UA: "", P: "", Pa: 357,},
     '2022-04-23': {ALT: 24, TP: 71, Alb: 44, AG: 1.6, TBil: 39.1, DBil: 9.1, GGT: 22, ALP: 70, AST: 18, TBA: 4.7, LD: 158, ChE: 9.7, K: 4.1, Na: 140, Cl: 104, TCO2: 27, Ca: 2.36, cCa: "", Mg: "", Cr: 74, Urea: 5.05, Glu: 4.9, UA: 467, P: 1.02, Pa: 322,},
     '2022-05-26': {ALT: 18, TP: 73, Alb: 46, AG: 1.7, TBil: 37.4, DBil: 9.5, GGT: 22, ALP: 74, AST: 19, TBA: 1.8, LD: 194, ChE: 9.2, K: 4.6, Na: 140, Cl: 104, TCO2: 27.2, Ca: 2.4, cCa: 2.28, Mg: 0.95, Cr: 80, Urea: 5.11, Glu: 5.6, UA: 449, P: 0.97, Pa: 326,},
+    '2026-02-24': {ALT: 31, TP: 73, Alb: 48, AG: 1.9, TBil: 34.1, DBil: 9.2, GGT: 24, ALP: 62, AST: 23, TBA: 2.2, LD: 155, ChE: 10.2, K: 4.2, Na: 140, Cl: 104, TCO2: 26.9, Ca: 2.47, cCa: 2.31, Mg: 0.91, Cr: 73, Urea: 4.7, Glu: 6.0, UA: 364, P: 0.85, Pa: 321,},
 }
