@@ -195,10 +195,6 @@
             font-weight: bold;
         }
 
-        .trend-stable {
-            color: #f39c12;
-        }
-
         .date-cell {
             font-weight: 600;
             color: #2c3e50;
@@ -211,6 +207,49 @@
             font-weight: normal;
             display: block;
             margin-top: 2px;
+        }
+
+        /* 血项表格特殊样式 */
+        .blood-table {
+            min-width: 1200px;
+            font-size: 0.85rem;
+        }
+
+        .blood-table th {
+            background: #e8f4f8;
+            color: #2c3e50;
+            font-size: 0.8rem;
+            padding: 10px 8px;
+            white-space: nowrap;
+        }
+
+        .blood-table td {
+            padding: 8px;
+            position: relative;
+        }
+
+        .blood-abnormal-high {
+            background-color: #ffebee;
+            color: #c62828;
+            font-weight: bold;
+        }
+
+        .blood-abnormal-low {
+            background-color: #aab7fd;
+            color: #1439db;
+            font-weight: bold;
+        }
+
+        .blood-normal {
+            color: #000000;
+        }
+
+        .reference-range {
+            font-size: 0.75rem;
+            color: #7f8c8d;
+            display: block;
+            margin-top: 2px;
+            font-weight: normal;
         }
 
         /* 小屏幕优化 */
@@ -235,7 +274,18 @@
             table {
                 min-width: 600px;
             }
+
+            .blood-table {
+                min-width: 1000px;
+                font-size: 0.75rem;
+            }
+
+            .blood-table th,
+            .blood-table td {
+                padding: 6px 4px;
+            }
         }
+
     </style>
 </head>
 <body>
@@ -284,6 +334,28 @@
                     </div>
                 </div>
             </div>
+
+        </div>
+
+        <!-- 血项详细数据表格 -->
+        <div class="data-table">
+            <div class="table-title">
+                <div class="chart-icon">🧪</div>
+                血项检查详细记录 <span style="font-size: 0.8rem; color: #7f8c8d; margin-left: 10px;">(红色表示高于正常值，蓝色表示低于正常值)</span>
+            </div>
+            <div style="overflow-x: auto;">
+                <table id="bloodTable" class="blood-table">
+                    <thead>
+                        <tr id="bloodTableHeader">
+                            <th>日期</th>
+                            <!-- 动态生成表头 -->
+                        </tr>
+                    </thead>
+                    <tbody id="bloodTableBody">
+                        <!-- 动态生成内容 -->
+                    </tbody>
+                </table>
+            </div>
         </div>
 
         <!-- 统一数据表格 -->
@@ -308,6 +380,7 @@
                 </tbody>
             </table>
         </div>
+
     </div>
 
     <script src="data.js"></script>
@@ -320,6 +393,7 @@
         // 处理数据 - 转换为时间戳格式用于时间轴
         const mrcpDates = Object.keys(MRCP).sort();
         const biomarkerDates = Object.keys(biomarkers).sort();
+        const bloodDates = Object.keys(blood1).sort();
         
         // 将数据转换为 [timestamp, value] 格式
         const processTimeData = (dataObj, dates, index) => {
@@ -327,6 +401,16 @@
                 const timestamp = new Date(date).getTime();
                 const values = dataObj[date] || [];
                 const value = values[index];
+                return [timestamp, value === "" || value === undefined ? null : value];
+            });
+        };
+
+        // 处理血项数据为 [timestamp, value] 格式
+        const processBloodData = (dataObj, dates, key) => {
+            return dates.map(date => {
+                const timestamp = new Date(date).getTime();
+                const dayData = dataObj[date] || {};
+                const value = dayData[key];
                 return [timestamp, value === "" || value === undefined ? null : value];
             });
         };
@@ -552,8 +636,6 @@
         const tableRows = [];
 
         allDates.forEach(date => {
-            const row = document.createElement('tr');
-            
             // 获取 MRCP 数据
             const mrcpValues = MRCP[date] || [null, null];
             const mrcp1 = mrcpValues[0] !== undefined ? mrcpValues[0] : null;
@@ -623,6 +705,65 @@
             fragment.appendChild(row);
         });
         tableBody.appendChild(fragment);
+
+        // 填充血项详细表格
+        const bloodTableHeader = document.getElementById('bloodTableHeader');
+        const bloodTableBody = document.getElementById('bloodTableBody');
+        
+        // 获取所有血项指标键（按blood1_dsc顺序）
+        const bloodKeys = Object.keys(blood1_dsc);
+        
+        // 生成表头
+        bloodKeys.forEach(key => {
+            const [name, min, max] = blood1_dsc[key];
+            const th = document.createElement('th');
+            th.innerHTML = `${name}<span class="reference-range">${min}-${max}</span>`;
+            bloodTableHeader.appendChild(th);
+        });
+
+        // 生成数据行（按日期倒序）
+        const sortedBloodDates = Object.keys(blood1).sort().reverse();
+        
+        sortedBloodDates.forEach(date => {
+            const row = document.createElement('tr');
+            
+            // 日期列
+            const dateCell = document.createElement('td');
+            dateCell.className = 'date-cell';
+            dateCell.textContent = date;
+            row.appendChild(dateCell);
+            
+            // 各指标列
+            const dayData = blood1[date];
+            bloodKeys.forEach(key => {
+                const td = document.createElement('td');
+                const value = dayData[key];
+                const [name, min, max] = blood1_dsc[key];
+                
+                if (value === "" || value === undefined || value === null) {
+                    td.innerHTML = '<span style="color: #bdc3c7;">-</span>';
+                } else {
+                    const numValue = parseFloat(value);
+                    td.textContent = value;
+                    
+                    // 判断是否在正常范围内
+                    if (!isNaN(numValue)) {
+                        if (numValue > max) {
+                            td.className = 'blood-abnormal-high';
+                            td.title = `${name}: ${value} (高于正常值 ${max})`;
+                        } else if (numValue < min) {
+                            td.className = 'blood-abnormal-low';
+                            td.title = `${name}: ${value} (低于正常值 ${min})`;
+                        } else {
+                            td.className = 'blood-normal';
+                        }
+                    }
+                }
+                row.appendChild(td);
+            });
+            
+            bloodTableBody.appendChild(row);
+        });
 
         // 修复：使用防抖函数优化 resize 性能
         function debounce(func, wait) {
