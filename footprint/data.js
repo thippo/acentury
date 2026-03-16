@@ -149,6 +149,14 @@ const geoData = [
                 ]
             },
             {
+                id: "cn-hc", name: "韩城", type: "city", lng: 110.471000, lat: 35.47129, zoom: 10,
+                children: [
+                    {
+                        id: "cn-hc-hcjd", name: "韩城住一宿", type: "spot", lng: 110.471000, lat: 35.47129, date: "2018-02-18", description: "",
+                    },
+                ]
+            },
+            {
                 id: "cn-xa", name: "西安", type: "city", lng: 108.9398, lat: 34.3416, zoom: 10,
                 children: [
                     {
