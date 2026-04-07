@@ -3,7 +3,7 @@ summarydata = {
         "2026":{
                 title: "--",
                 things: [
-                        "-",
+                        "家里装了净水机",
                         ],
                 booktotal: [7, 2],
                 books: [
