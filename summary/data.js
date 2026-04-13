@@ -4,6 +4,7 @@ summarydata = {
                 title: "--",
                 things: [
                         "家里装了净水机",
+                        "把我第一家公司注销了",
                         ],
                 booktotal: [7, 2],
                 books: [
@@ -15,7 +16,7 @@ summarydata = {
                         "《沃伦·巴菲特的CEO们: 伯克希尔经理人的经营秘诀》罗伯特·迈尔斯 听",
                         "*《自我突围: 向理想前行》施一公 听",
                         ],
-                movietotal: [7, 1],
+                movietotal: [8, 1],
                 movies: [
                         "《疯狂的小镇》1987",
                         ],
