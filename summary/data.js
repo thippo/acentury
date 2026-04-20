@@ -4,7 +4,8 @@ summarydata = {
                 title: "--",
                 things: [
                         "家里装了净水机",
-                        "把我第一家公司注销了",
+                        "把我第一家公司Evolidea注销了",
+                        "比亚迪元plus被追尾了",
                         ],
                 booktotal: [7, 2],
                 books: [
