@@ -13,7 +13,8 @@
                     <h3 style="font-size: 20px; margin: 0.5em 0;">集体奖项</h3>
                     <ul style="padding-left: 40px; font-size: 16px; margin: 0em 0;">
                         <li style="margin: 0.0em 0;">2025 国家蛋白质中心（北京）优秀技术平台</li>
-                        <li style="margin: 0.0em 0;">2021,2023,2024 清华大学大型仪器设备使用效益</li>
+                        <li style="margin: 0.0em 0;">2025 清华大学生命学科校级平台“优秀机组”称号</li>
+                        <li style="margin: 0.0em 0;">2021,2023,2024,2025 清华大学大型仪器设备使用效益</li>
                         <li style="margin: 0.0em 0;">2023,2024 中国高校算力优秀案例奖</li>
                     </ul>
                     <h3 style="font-size: 20px; margin: 0.5em 0;">基金项目</h3>
@@ -23,28 +24,28 @@
                     </ul>
                     <h3 style="font-size: 20px; margin: 0.5em 0;">软件著作</h3>
                     <ul style="padding-left: 40px; font-size: 16px; margin: 0em 0;">
-                        <li style="margin: 0.0em 0;">唐贺,许丽娜,刘晓蕙,杨涛. 一种生物实验数据检索展示网站平台: 2024SR0068365</li>
-                        <li style="margin: 0.0em 0;">唐贺,杨涛,户军雷,陈晋红. 集群内外网隔离直播监控技术及运维: 2024SR1197896</li>
+                        <li style="margin: 0.0em 0;"><b>唐贺</b>,许丽娜,刘晓蕙,杨涛. 一种生物实验数据检索展示网站平台: 2024SR0068365</li>
+                        <li style="margin: 0.0em 0;"><b>唐贺</b>,杨涛,户军雷,陈晋红. 集群内外网隔离直播监控技术及运维: 2024SR1197896</li>
                     </ul>
                     <h3 style="font-size: 20px; margin: 0.5em 0;">期刊论文</h3>
                     <ul style="padding-left: 40px; font-size: 16px;" margin: 0em 0;>
-                        <li style="margin: 0.0em 0;">Yang, X., Xiao, Z., Wu, X., Xing, K., Tang, H., Yang, T., et al. Improving Password Guessing with Isomorphism Modeling. IEEE Transactions on Information Forensics and Security, (2025) </li>
-                        <li style="margin: 0.0em 0;">唐贺,杨涛,阮华斌.基于OKR的生物计算平台管理.实验室研究与探索, 2023, 42(6): 253-256</li>
-                        <li style="margin: 0.0em 0;">陈晔光,杨涛,唐贺.我国当前高等院校成果转化体系状况之调研与思考.民主与科学, 2019(3):4</li>
-                        <li style="margin: 0.0em 0;">Yan, Y., Zhang, L., Yu, M., Wang, J., Tang, H., et al. The Genome of Bacillus Aryabhattai T61 Reveals its Adaptation to Tibetan Plateau Environment. Genes & Genomics, (2016). 38(3):293-301.</li>
+                        <li style="margin: 0.0em 0;">Yang, X., Xiao, Z., Wu, X., Xing, K., <b>Tang, H.</b>, Yang, T., et al. Improving Password Guessing with Isomorphism Modeling. IEEE Transactions on Information Forensics and Security, (2025) </li>
+                        <li style="margin: 0.0em 0;"><b>唐贺</b>,杨涛,阮华斌.基于OKR的生物计算平台管理.实验室研究与探索, 2023, 42(6): 253-256</li>
+                        <li style="margin: 0.0em 0;">陈晔光,杨涛,<b>唐贺</b>.我国当前高等院校成果转化体系状况之调研与思考.民主与科学, 2019(3):4</li>
+                        <li style="margin: 0.0em 0;">Yan, Y., Zhang, L., Yu, M., Wang, J., <b>Tang, H.</b>, et al. The Genome of Bacillus Aryabhattai T61 Reveals its Adaptation to Tibetan Plateau Environment. Genes & Genomics, (2016). 38(3):293-301.</li>
                     </ul>
                     <h3 style="font-size: 20px; margin: 0.5em 0;">会议论文</h3>
                     <ul style="padding-left: 40px; font-size: 16px; margin: 0em 0;">
-                        <li style="margin: 0.0em 0;">杨涛,唐贺. 一种基于内存的冷冻电镜压缩数据读取展示方法[C]. HPC China 2025, 2025, 201-208.</li>
-                        <li style="margin: 0.0em 0;">阮华斌,杨涛,唐贺. PB量级冷冻电镜数据压缩存储方法[C]. HPC China 2024, 2024, 4-15. (会议优秀论文)</li>
+                        <li style="margin: 0.0em 0;">杨涛,<b>唐贺</b>. 一种基于内存的冷冻电镜压缩数据读取展示方法[C]. HPC China 2025, 2025, 201-208.</li>
+                        <li style="margin: 0.0em 0;">阮华斌,杨涛,<b>唐贺</b>. PB量级冷冻电镜数据压缩存储方法[C]. HPC China 2024, 2024, 4-15. (会议优秀论文)</li>
                     </ul>
                     <h3 style="font-size: 20px; margin: 0.5em 0;">发明专利</h3>
                     <ul style="padding-left: 40px; font-size: 16px; margin: 0em 0;">
-                        <li style="margin: 0.0em 0;">唐贺,万平.一种植物叶片照片的气孔识别方法及装置:CN201710712583.4[P]</li>
-                        <li style="margin: 0.0em 0;">阮华斌,杨涛,唐贺,等.一种内存访问管理方法和系统:CN202111078307.X[P]</li>
-                        <li style="margin: 0.0em 0;">唐贺,杨涛,阮华斌. 数据复现方法、装置、系统和计算机可读存储介质:CN02410308268.5[P] (实质审查)</li>
-                        <li style="margin: 0.0em 0;">徐运昕,许丽娜,刘晓蕙,唐贺,杨涛. 一种化合物名称的检索方法和装置:CN02311823641.2[P] (实质审查)</li>
-                        <li style="margin: 0.0em 0;">阮华斌,韩文静,杨涛,唐贺等. 冷冻电镜数据智能自动处理方法和装置:CN202311406886 .5[P] (实质审查)</li>
+                        <li style="margin: 0.0em 0;"><b>唐贺</b>,万平.一种植物叶片照片的气孔识别方法及装置:CN201710712583.4[P]</li>
+                        <li style="margin: 0.0em 0;">阮华斌,杨涛,<b>唐贺</b>,等.一种内存访问管理方法和系统:CN202111078307.X[P]</li>
+                        <li style="margin: 0.0em 0;"><b>唐贺</b>,杨涛,阮华斌. 数据复现方法、装置、系统和计算机可读存储介质:CN02410308268.5[P] (实质审查)</li>
+                        <li style="margin: 0.0em 0;">徐运昕,许丽娜,刘晓蕙,<b>唐贺</b>,杨涛. 一种化合物名称的检索方法和装置:CN02311823641.2[P] (实质审查)</li>
+                        <li style="margin: 0.0em 0;">阮华斌,韩文静,杨涛,<b>唐贺</b>等. 冷冻电镜数据智能自动处理方法和装置:CN202311406886 .5[P] (实质审查)</li>
                     </ul>
                 `,
                 category: "记录",
