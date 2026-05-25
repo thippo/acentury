@@ -185,7 +185,69 @@ const geoData = [
                         id: "cn-hz-xhdxyx", name: "西湖大学(云栖校区)", type: "spot", lng: 120.086835, lat: 30.140566, date: "2019-06-25", description: "",
                     },
                 ]
-            }
+            },
+            {
+                id: "cn-rc",
+                name: "荣成",
+                type: "city",
+                lat: 37.15,
+                lng: 122.41,
+                zoom: 10,
+                children: [
+                    {
+                        id: "cn-rc-rcz", name: "荣成站", type: "spot", lng: 122.41, lat: 37.15, date: "2026-05-11", description: "",
+                    },
+                    {
+                        id: "cn-rc-qjjd", name: "全季酒店(威海荣成成山大道店)", type: "spot", lng: 122.47, lat: 37.16, date: "2026-05-11", description: "",
+                    },
+                ]
+            },
+            {
+                id: "cn-wh",
+                name: "威海",
+                type: "city",
+                lat: 37.15,
+                lng: 122.41,
+                zoom: 10,
+                children: [
+                    {
+                        id: "cn-wh-blwsh", name: "布鲁维斯号", type: "spot", lng: 122.56, lat: 37.41, date: "2026-05-12", description: "",
+                    },
+                    {
+                        id: "cn-wh-whfybjyy", name: "威海市妇幼保健院", type: "spot", lng: 122.13, lat: 37.52, date: "2026-05-12", description: "",
+                    },
+                    {
+                        id: "cn-wh-bdfngjjd", name: "半岛菲诺国际酒店(威海高铁站韩乐坊店)", type: "spot", lng: 122.16, lat: 37.43, date: "2026-05-12", description: "",
+                    },
+                    {
+                        id: "cn-wh-yhgydt", name: "悦海公园-灯塔", type: "spot", lng: 122.17, lat: 37.46, date: "2026-05-13", description: "",
+                    },
+                    {
+                        id: "cn-wh-whdxk", name: "威海大相框", type: "spot", lng: 122.15, lat: 37.47, date: "2026-05-13", description: "",
+                    },
+                    {
+                        id: "cn-wh-qxmt", name: "侨乡码头", type: "spot", lng: 122.15, lat: 37.50, date: "2026-05-13", description: "",
+                    },
+                    {
+                        id: "cn-wh-ymd", name: "养马岛旅游度假区", type: "spot", lng: 121.63, lat: 37.47, date: "2026-05-14", description: "",
+                    },
+                    {
+                        id: "cn-wh-dpthbw", name: "东炮台海豹湾生态保育公园", type: "spot", lng: 121.44, lat: 37.54, date: "2026-05-14", description: "",
+                    },
+                    {
+                        id: "cn-wh-qjjdytsgyd", name: "全季酒店(烟台滨海广场烟台山公园店)", type: "spot", lng: 121.41, lat: 37.55, date: "2026-05-14", description: "",
+                    },
+                    {
+                        id: "cn-wh-gddj", name: "孤独的鲸", type: "spot", lng: 121.24, lat: 37.58, date: "2026-05-15", description: "",
+                    },
+                    {
+                        id: "cn-wh-dldlabjd", name: "朵兰达LAB酒店(烟台金沙滩海水浴场店)", type: "spot", lng: 121.25, lat: 37.58, date: "2026-05-15", description: "",
+                    },
+                    {
+                        id: "cn-wh-ytpljc", name: "烟台蓬莱国际机场", type: "spot", lng: 120.99, lat: 37.66, date: "2026-05-16", description: "",
+                    },
+                ]
+            },
         ]
     },
     {
