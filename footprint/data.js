@@ -228,26 +228,37 @@ const geoData = [
                     {
                         id: "cn-wh-qxmt", name: "侨乡码头", type: "spot", lng: 122.15, lat: 37.50, date: "2026-05-13", description: "",
                     },
+                ]
+            },
+            {
+                id: "cn-yt",
+                name: "烟台",
+                type: "city",
+                lat: 37.55,
+                lng: 121.41,
+                zoom: 10,
+                children: [
                     {
-                        id: "cn-wh-ymd", name: "养马岛旅游度假区", type: "spot", lng: 121.63, lat: 37.47, date: "2026-05-14", description: "",
+                        id: "cn-yt-ymd", name: "养马岛旅游度假区", type: "spot", lng: 121.63, lat: 37.47, date: "2026-05-14", description: "",
                     },
                     {
-                        id: "cn-wh-dpthbw", name: "东炮台海豹湾生态保育公园", type: "spot", lng: 121.44, lat: 37.54, date: "2026-05-14", description: "",
+                        id: "cn-yt-dpthbw", name: "东炮台海豹湾生态保育公园", type: "spot", lng: 121.44, lat: 37.54, date: "2026-05-14", description: "",
                     },
                     {
-                        id: "cn-wh-qjjdytsgyd", name: "全季酒店(烟台滨海广场烟台山公园店)", type: "spot", lng: 121.41, lat: 37.55, date: "2026-05-14", description: "",
+                        id: "cn-yt-qjjdytsgyd", name: "全季酒店(烟台滨海广场烟台山公园店)", type: "spot", lng: 121.41, lat: 37.55, date: "2026-05-14", description: "",
                     },
                     {
-                        id: "cn-wh-gddj", name: "孤独的鲸", type: "spot", lng: 121.24, lat: 37.58, date: "2026-05-15", description: "",
+                        id: "cn-yt-gddj", name: "孤独的鲸", type: "spot", lng: 121.24, lat: 37.58, date: "2026-05-15", description: "",
                     },
                     {
-                        id: "cn-wh-dldlabjd", name: "朵兰达LAB酒店(烟台金沙滩海水浴场店)", type: "spot", lng: 121.25, lat: 37.58, date: "2026-05-15", description: "",
+                        id: "cn-yt-dldlabjd", name: "朵兰达LAB酒店(烟台金沙滩海水浴场店)", type: "spot", lng: 121.25, lat: 37.58, date: "2026-05-15", description: "",
                     },
                     {
-                        id: "cn-wh-ytpljc", name: "烟台蓬莱国际机场", type: "spot", lng: 120.99, lat: 37.66, date: "2026-05-16", description: "",
+                        id: "cn-yt-ytpljc", name: "烟台蓬莱国际机场", type: "spot", lng: 120.99, lat: 37.66, date: "2026-05-16", description: "",
                     },
                 ]
             },
+
         ]
     },
     {
