@@ -375,10 +375,13 @@
                 </div>
             </div>
 
-            <div class="module" id="birthdayModule" style="cursor:pointer;" title="点击查看详情">
-                <h3>🎂 生日提醒</h3>
-                <div class="module-content" id="birthdayBox">
-                    <!-- JS 动态生成 -->
+            <div class="module" id="sonModule" style="cursor:pointer;" title="点击查看详情">
+                <h3>👶 儿子成长</h3>
+                <div class="module-content" id="sonContent">
+                    <div style="text-align:center;padding:8px 0;">
+                        <div style="font-size:1.8rem;font-weight:bold;color:#e88d6a;" id="sonAgeDisplay">--</div>
+                        <div style="font-size:0.85rem;color:#a0806a;margin-top:4px;">大壮壮</div>
+                    </div>
                 </div>
             </div>
 
@@ -476,6 +479,13 @@
                   </div>
                 </div>
               </div>
+
+            <div class="module" id="birthdayModule" style="cursor:pointer;" title="点击查看详情">
+                <h3>🎂 生日提醒</h3>
+                <div class="module-content" id="birthdayBox">
+                    <!-- JS 动态生成 -->
+                </div>
+            </div>
 
             <!-- Blog -->
             <div class="module" id="blogModule" style="cursor:pointer;" title="点击查看详情">
@@ -843,6 +853,18 @@
             document.getElementById('weight-min').textContent = min.weight.toFixed(1);
         }
 
+        /* ===== 儿子年龄渲染 ===== */
+        const SON_BIRTH = new Date('2024-05-24T11:41:00');
+        function renderSon() {
+            const now = new Date();
+            let yy = now.getFullYear() - SON_BIRTH.getFullYear();
+            let mm = now.getMonth() - SON_BIRTH.getMonth();
+            let dd = now.getDate() - SON_BIRTH.getDate();
+            if (dd < 0) { const prev = new Date(now.getFullYear(), now.getMonth(), 0); dd += prev.getDate(); mm--; }
+            if (mm < 0) { mm += 12; yy--; }
+            document.getElementById('sonAgeDisplay').textContent = `${yy}岁${mm}月`;
+        }
+
         /* ===== 胰腺状态渲染 ===== */
         function renderPancreas(){
             if(typeof MRCP === 'undefined' || typeof biomarkers === 'undefined') return;
@@ -916,6 +938,9 @@
         document.getElementById('pancreasModule').addEventListener('click', () => {
             window.open('pancreas/index.html', '_blank');
         });
+        document.getElementById('sonModule').addEventListener('click', () => {
+            window.open('son/index.html', '_blank');
+        });
 
         updateMainDisplay();
         renderEvents();
@@ -928,8 +953,10 @@
         renderOverseas();
         renderWeight();
         renderPancreas();
+        renderSon();
 
         setInterval(updateMainDisplay, 1000);
+        setInterval(renderSon, 60000);
 
     </script>
 

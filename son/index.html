@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>壮壮成长记</title>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="39819c8f-f1cd-4efb-84da-85bbfa514f8d"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #f0f5fa 0%, #e3ebf3 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #2c4056;
+        }
+        .container { max-width: 1400px; margin: 0 auto; }
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            align-items: start;
+        }
+        .left-col { min-width: 0; }
+        .right-col { min-width: 0; max-height: 900px; overflow-y: auto; padding-right: 8px; }
+        .right-col::-webkit-scrollbar { width: 6px; }
+        .right-col::-webkit-scrollbar-thumb { background: #c5d6e5; border-radius: 3px; }
+
+        .header {
+            background: linear-gradient(135deg, #6d9fc3, #4a7faa);
+            border-radius: 20px;
+            padding: 20px 30px;
+            margin-bottom: 24px;
+            box-shadow: 0 8px 24px rgba(74, 127, 170, 0.25);
+        }
+
+        .age-timer {
+            background: rgba(255,255,255,0.82);
+            border-radius: 14px;
+            padding: 14px 20px;
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .age-timer h1 {
+            font-size: 1.6rem;
+            color: #2c4056;
+            white-space: nowrap;
+        }
+        .age-timer .birth-info {
+            font-size: 0.92rem;
+            color: #2c4056;
+            line-height: 1.6;
+        }
+        .age-timer .birth-info strong { color: #2c4056 !important; }
+        .age-display {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-left: auto;
+        }
+        .age-unit { text-align: center; min-width: 36px; }
+        .age-unit .num {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2c4056;
+            line-height: 1.2;
+        }
+        .age-unit .label {
+            font-size: 0.75rem;
+            color: #6f95b0;
+        }
+        .age-unit .num.hours { color: #6f95b0; }
+
+        .card-box {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            color: #2c4056;
+            margin: 30px 0 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #c5d6e5;
+        }
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #6d9fc3, #c5d6e5);
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 20px;
+            background: #f4f8fc;
+            border-radius: 14px;
+            padding: 14px 18px;
+            box-shadow: 0 2px 8px rgba(74,127,170,0.06);
+            border: 1px solid #d6e3ef;
+            transition: transform 0.2s;
+        }
+        .timeline-item:hover { transform: translateX(4px); }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -31px;
+            top: 20px;
+            width: 12px;
+            height: 12px;
+            background: #6d9fc3;
+            border-radius: 50%;
+            border: 3px solid #f0f5fa;
+            box-shadow: 0 0 0 2px #6d9fc3;
+        }
+        .timeline-item .date {
+            font-size: 0.8rem;
+            color: #6f95b0;
+            margin-bottom: 4px;
+        }
+        .timeline-item .text {
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        .timeline-item .tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-right: 6px;
+            background: #e4edf5;
+            color: #4a7faa;
+        }
+
+        .finance-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .finance-card {
+            background: #f0f5fa;
+            border-radius: 12px;
+            padding: 14px 16px;
+            border: 1px solid #d6e3ef;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .finance-card .bank {
+            font-size: 0.82rem;
+            color: #6f95b0;
+        }
+        .finance-card .amount {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #2c4056;
+        }
+        .finance-total {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, #b8d4e8, #95c0d8);
+            border-radius: 12px;
+            padding: 14px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #2c4056;
+        }
+        .finance-total .bank { color: #4a7faa; font-size: 0.82rem; }
+        .finance-total .amount { color: #2c4056; font-size: 1.1rem; }
+
+        @media (max-width: 768px) {
+            .main-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 600px) {
+            .header { padding: 25px 15px; }
+            .header h1 { font-size: 1.6rem; }
+            .age-display { gap: 8px; }
+            .age-unit .num { font-size: 1.5rem; }
+            .age-unit { min-width: 55px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="header" style="padding:14px 24px;">
+            <div class="age-timer">
+                <h1>壮壮成长记</h1>
+                <div class="birth-info">出生：2024-05-24 11:41<br>来到这个世界 <strong style="color:#fff;" id="totalDays">--</strong> 天</div>
+                <div class="age-display">
+                    <div class="age-unit"><div class="num" id="ageYears">0</div><div class="label">年</div></div>
+                    <div class="age-unit"><div class="num" id="ageMonths">0</div><div class="label">月</div></div>
+                    <div class="age-unit"><div class="num" id="ageDays">0</div><div class="label">天</div></div>
+                    <div class="age-unit"><div class="num hours" id="ageHours">00</div><div class="label">时</div></div>
+                    <div class="age-unit"><div class="num hours" id="ageMinutes">00</div><div class="label">分</div></div>
+                    <div class="age-unit"><div class="num hours" id="ageSeconds">00</div><div class="label">秒</div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-grid">
+            <div class="left-col">
+                <div class="card-box" style="padding:14px 20px;text-align:left;">
+                    <h3 style="color:#2c4056;margin-bottom:10px;font-size:1.1rem;">👣 儿子足迹</h3>
+                    <div style="border:1px solid #d6e3ef;border-radius:10px;padding:10px 14px;margin-bottom:8px;background:#f4f8fc;">
+                        <div style="font-size:1.05rem;font-weight:bold;color:#2c4056;margin-bottom:4px;">中国</div>
+                        <div style="font-size:0.82rem;color:#6f95b0;">北京、天津、秦皇岛、张家口、荣成、威海、烟台</div>
+                    </div>
+                    <div style="border:1px solid #d6e3ef;border-radius:10px;padding:10px 14px;background:#f4f8fc;">
+                        <div style="font-size:1.05rem;font-weight:bold;color:#2c4056;margin-bottom:4px;">韩国</div>
+                        <div style="font-size:0.82rem;color:#6f95b0;">釜山、首尔</div>
+                    </div>
+                </div>
+                <div class="card-box">
+                    <h3 style="color:#2c4056;margin-bottom:16px;font-size:1.1rem;">💰 儿子资产</h3>
+                    <div id="sonFinanceDetails"></div>
+                </div>
+            </div>
+            <div class="right-col">
+                <div class="card-box">
+                    <h3 style="color:#2c4056;margin-bottom:16px;font-size:1.1rem;">🌱 成长大事记</h3>
+                    <div class="timeline" id="milestones"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const BIRTH = new Date('2024-05-24T11:41:00');
+
+        function zero(n) { return n < 10 ? '0' + n : n; }
+
+        function updateAge() {
+            const now = new Date();
+            let yy = now.getFullYear() - BIRTH.getFullYear();
+            let mm = now.getMonth() - BIRTH.getMonth();
+            let dd = now.getDate() - BIRTH.getDate();
+            let hh = now.getHours() - BIRTH.getHours();
+            let min = now.getMinutes() - BIRTH.getMinutes();
+            let ss = now.getSeconds() - BIRTH.getSeconds();
+            if (ss < 0) { ss += 60; min--; }
+            if (min < 0) { min += 60; hh--; }
+            if (hh < 0) { hh += 24; dd--; }
+            if (dd < 0) {
+                const prev = new Date(now.getFullYear(), now.getMonth(), 0);
+                dd += prev.getDate();
+                mm--;
+            }
+            if (mm < 0) { mm += 12; yy--; }
+
+            document.getElementById('ageYears').textContent = yy;
+            document.getElementById('ageMonths').textContent = mm;
+            document.getElementById('ageDays').textContent = dd;
+            document.getElementById('ageHours').textContent = zero(hh);
+            document.getElementById('ageMinutes').textContent = zero(min);
+            document.getElementById('ageSeconds').textContent = zero(ss);
+
+            const totalDays = Math.floor((now - BIRTH) / 86400000);
+            document.getElementById('totalDays').textContent = totalDays;
+        }
+
+        const milestoneItems = [
+            { date: '2024-05-24', text: '壮壮出生啦！🎉', tag: '出生' },
+            { date: '2024-05-27', text: '爸爸第一次抱我', tag: '里程碑' },
+            { date: '2024-05-30', endDate: '2024-06-04', text: '离开爸妈黄疸住院', tag: '成长' },
+            { date: '2024-06-10', text: '爸爸第一次教我英语', tag: '成长' },
+            { date: '2024-07-18', text: '爷爷第一次抱我', tag: '里程碑' },
+            { date: '2024-08-15', text: '第一次翻身', tag: '里程碑' },
+            { date: '2024-10-20', endDate: '2024-10-22', text: '第一次跟爸妈开车去天津极地海洋馆旅游', tag: '旅行' },
+            { date: '2024-10-23', text: '长出第一颗牙', tag: '里程碑' },
+            { date: '2024-11-02', text: '吃了第一口辅食', tag: '里程碑' },
+            { date: '2024-11-16', text: '爬出第一步', tag: '里程碑' },
+            { date: '2024-12-11', text: '第一次叫出爸爸', tag: '里程碑' },
+            { date: '2024-12-29', text: '我会叫妈妈了', tag: '里程碑' },
+            { date: '2025-02-22', text: '第一次坐S2线', tag: '里程碑' },
+            { date: '2025-05-06', text: '第一次独自站起来行走', tag: '里程碑' },
+            { date: '2025-05-19', text: '第一次坐地铁', tag: '里程碑' },
+            { date: '2025-05-21', endDate: '2025-05-23', text: '跟爸妈奶奶姥姥开车去秦皇岛蔚蓝海岸', tag: '旅行' },
+            { date: '2025-07-07', text: '爸爸妈妈带我去了南宫五洲植物乐园', tag: '旅行' },
+            { date: '2025-08-18', endDate: '2025-08-19', text: '跟爸爸妈妈自驾去了静之湖', tag: '旅行' },
+            { date: '2025-08-22', endDate: '2025-08-24', text: '跟爸妈开车去太舞小镇富龙四季小镇', tag: '旅行' },
+            { date: '2025-10-07', text: '爸爸妈妈带我去了北京动物园', tag: '旅行' },
+            { date: '2026-05-11', text: '第一次坐高铁', tag: '里程碑' },
+            { date: '2026-05-11', endDate: '2026-05-16', text: '爸爸妈妈带我去了山东荣成威海烟台', tag: '旅行' },
+            { date: '2026-05-12', text: '第一次坐游轮', tag: '里程碑' },
+            { date: '2026-05-16', text: '第一次坐飞机', tag: '里程碑' },
+            { date: '2026-08-12', text: '托班开学，迈出社交第一步', tag: '成长' },
+        ];
+
+        function renderMilestones() {
+            const box = document.getElementById('milestones');
+            const items = milestoneItems;
+            let prevYear = 0;
+            items.forEach(item => {
+                const yr = parseInt(item.date.slice(0, 4));
+                if (yr !== prevYear) {
+                    const head = document.createElement('div');
+                    head.style.cssText = 'font-size:1rem;font-weight:bold;color:#2c4056;margin:16px 0 8px -24px;';
+                    head.textContent = `—— ${yr}年 ——`;
+                    box.appendChild(head);
+                    prevYear = yr;
+                }
+                const div = document.createElement('div');
+                div.className = 'timeline-item';
+                const dateStr = item.endDate ? `${item.date} → ${item.endDate}` : item.date;
+                div.innerHTML = `<div class="date">${dateStr}</div><div class="text"><span class="tag">${item.tag}</span> ${item.text}</div>`;
+                box.appendChild(div);
+            });
+        }
+
+        function renderSonFinance() {
+            const deposits = [
+                ['民生银行', 100000.0, '定期1'],
+                ['建行', 40100.0, '定期'],
+                ['民生银行', 34400.0, '定期6'],
+                ['民生银行', 31803.21, '定期3'],
+                ['民生银行', 21800.0, '定期2'],
+                ['民生银行', 17904.0, '定期7'],
+                ['民生银行', 10000.0, '定期5'],
+                ['民生银行', 1000.0, '定期4'],
+            ];
+            const box = document.getElementById('sonFinanceDetails');
+            const grid = document.createElement('div');
+            grid.className = 'finance-grid';
+            let total = 0;
+            deposits.forEach(item => {
+                total += item[1];
+                const card = document.createElement('div');
+                card.className = 'finance-card';
+                card.innerHTML = `<div><div class="amount">${item[1].toLocaleString()}</div><div class="bank">${item[0]} ${item[2]}</div></div>`;
+                grid.appendChild(card);
+            });
+            const totalCard = document.createElement('div');
+            totalCard.className = 'finance-total';
+            totalCard.innerHTML = `<div><div class="bank">合计</div></div><div><div class="amount">${total.toLocaleString()}</div></div>`;
+            grid.appendChild(totalCard);
+            box.appendChild(grid);
+        }
+
+        updateAge();
+        renderMilestones();
+        renderSonFinance();
+        setInterval(updateAge, 1000);
+    </script>
+</body>
+</html>
