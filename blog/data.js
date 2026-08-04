@@ -1,5 +1,75 @@
         const posts = [
             {
+                id: 8,
+                title: "儿子成长",
+                excerpt: "儿子 成长 记录",
+                content: `
+                    <h3 style="font-size: 20px; margin: 0.5em 0;">足迹</h3>
+                    <ul style="padding-left: 40px; font-size: 16px; margin: 0em 0;">
+                        <li style="margin: 0.0em 0; list-style: none;"><b>中国</b>
+                            <ul style="padding-left: 20px; margin: 0; list-style: none;">
+                                <li style="margin: 0.0em 0;">北京、天津、秦皇岛、张家口、荣成、威海、烟台</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <br>
+                    <h3 style="font-size: 20px; margin: 0.5em 0;">成长大事记</h3>
+                    <ul style="padding-left: 40px; font-size: 16px; margin: 0em 0;">
+                        <li style="margin: 0.0em 0; list-style: none;"><b>2024年</b>
+                            <ul style="padding-left: 20px; margin: 0; list-style: none;">
+                                <li style="margin: 0.0em 0;">2024-05-24 壮壮出生啦！🎉</li>
+                                <li style="margin: 0.0em 0;">2024-05-27  爸爸第一次抱你</li>
+                                <li style="margin: 0.0em 0;">2024-05-30 → 2024-06-04 离开爸妈独自因黄疸住院</li>
+                                <li style="margin: 0.0em 0;">2024-06-09 你也是有户口的人啦</li>
+                                <li style="margin: 0.0em 0;">2024-06-10 爸爸第一次教你英语</li>
+                                <li style="margin: 0.0em 0;">2024-07-18 爷爷第一次抱你</li>
+                                <li style="margin: 0.0em 0;">2024-08-15 你第一次翻身</li>
+                                <li style="margin: 0.0em 0;">2024-10-20 → 2024-10-22 第一次带你去旅行，自驾带着你和妈妈去天津极地海洋馆旅游</li>
+                                <li style="margin: 0.0em 0;">2024-10-23 你长出了第一颗牙</li>
+                                <li style="margin: 0.0em 0;">2024-11-02 你吃了第一口辅食</li>
+                                <li style="margin: 0.0em 0;">2024-11-16 你爬出了第一步</li>
+                                <li style="margin: 0.0em 0;">2024-12-11 你第一次清晰的叫出了爸爸</li>
+                                <li style="margin: 0.0em 0;">2024-12-29 你会叫妈妈了</li>                                
+                            </ul>
+                        </li>
+                        <li style="margin: 0.0em 0; list-style: none;"><b>2025年</b>
+                            <ul style="padding-left: 20px; margin: 0; list-style: none;">
+                                <li style="margin: 0.0em 0;">2025-02-22 第一次坐S2线</li>
+                                <li style="margin: 0.0em 0;">2025-05-06 你可以独自站起来行走了</li>
+                                <li style="margin: 0.0em 0;">2025-05-19 第一次坐地铁</li>
+                                <li style="margin: 0.0em 0;">2025-05-21 → 2025-05-23 爸爸妈妈自驾带着奶奶姥姥开车去秦皇岛蔚蓝海岸</li>
+                                <li style="margin: 0.0em 0;">2025-07-07 爸爸妈妈带你去了南宫五洲植物乐园</li>
+                                <li style="margin: 0.0em 0;">2025-08-18 → 2025-08-19 爸爸妈妈带你去了静之湖</li>
+                                <li style="margin: 0.0em 0;">2025-08-22 → 2025-08-24 爸爸妈妈自驾带着你去了太舞小镇和富龙四季小镇</li>
+                                <li style="margin: 0.0em 0;">2025-10-07 爸爸妈妈带你去了北京动物园</li>
+                                <li style="margin: 0.0em 0;"></li>
+                                <li style="margin: 0.0em 0;"></li>
+                                <li style="margin: 0.0em 0;"></li>
+                                <li style="margin: 0.0em 0;"></li>
+                                <li style="margin: 0.0em 0;"></li>
+                                <li style="margin: 0.0em 0;"></li>
+                                <li style="margin: 0.0em 0;"></li>
+                            </ul>
+                        </li>
+                        <li style="margin: 0.0em 0; list-style: none;"><b>2026年</b>
+                            <ul style="padding-left: 20px; margin: 0; list-style: none;">
+                                <li style="margin: 0.0em 0;">2026-05-11 第一次坐高铁</li>
+                                <li style="margin: 0.0em 0;">2026-05-11 → 2026-05-16 爸爸妈妈带你去了山东荣成威海烟台</li>
+                                <li style="margin: 0.0em 0;">2026-05-12 第一次坐游轮</li>
+                                <li style="margin: 0.0em 0;">2026-05-16 第一次坐飞机</li>
+                                <li style="margin: 0.0em 0;">2026-07-18 爸爸妈妈带你去了国家动物博物馆</li>
+                                <li style="margin: 0.0em 0;">2026-07-26 爸爸妈妈带你去了北京汽车博物馆</li>
+                                <li style="margin: 0.0em 0;">2026-08-01 爸爸妈妈带你去了中国国家地理探索中心·恐龙星球</li>
+                                <li style="margin: 0.0em 0;"></li>
+                            </ul>
+                        </li>
+                    </ul>
+                `,
+                category: "记录",
+                date: "2026-02-12",
+                tags: []
+            },
+            {
                 id: 7,
                 title: "奖项荣誉项目文章专利软著汇总",
                 excerpt: "个人奖项 集体奖项 基金项目 软件著作 期刊论文 会议论文 发明专利",
@@ -42,9 +112,8 @@
                     <h3 style="font-size: 20px; margin: 0.5em 0;">发明专利</h3>
                     <ul style="padding-left: 40px; font-size: 16px; margin: 0em 0;">
                         <li style="margin: 0.0em 0;"><b>唐贺</b>,万平.一种植物叶片照片的气孔识别方法及装置:CN201710712583.4[P]</li>
-                        <li style="margin: 0.0em 0;">阮华斌,杨涛,<b>唐贺</b>,等.一种内存访问管理方法和系统:CN202111078307.X[P]</li>
-                        <li style="margin: 0.0em 0;"><b>唐贺</b>,杨涛,阮华斌. 数据复现方法、装置、系统和计算机可读存储介质:CN02410308268.5[P] (实质审查)</li>
-                        <li style="margin: 0.0em 0;">徐运昕,许丽娜,刘晓蕙,<b>唐贺</b>,杨涛. 一种化合物名称的检索方法和装置:CN02311823641.2[P] (实质审查)</li>
+                        <li style="margin: 0.0em 0;">阮华斌,杨涛,<b>唐贺</b>,陈晋红.一种内存访问管理方法和系统:CN202111078307.X[P]</li>
+                        <li style="margin: 0.0em 0;">徐运昕,许丽娜,刘晓蕙,<b>唐贺</b>,杨涛. 一种化合物名称的检索方法和装置:CN02311823641.2[P]</li>
                         <li style="margin: 0.0em 0;">阮华斌,韩文静,杨涛,<b>唐贺</b>等. 冷冻电镜数据智能自动处理方法和装置:CN202311406886 .5[P] (实质审查)</li>
                     </ul>
                 `,

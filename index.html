@@ -375,13 +375,10 @@
                 </div>
             </div>
 
-            <div class="module" id="sonModule" style="cursor:pointer;" title="点击查看详情">
-                <h3>👶 儿子成长</h3>
-                <div class="module-content" id="sonContent">
-                    <div style="text-align:center;padding:8px 0;">
-                        <div style="font-size:1.8rem;font-weight:bold;color:#e88d6a;" id="sonAgeDisplay">--</div>
-                        <div style="font-size:0.85rem;color:#a0806a;margin-top:4px;">大壮壮</div>
-                    </div>
+            <div class="module" id="birthdayModule" style="cursor:pointer;" title="点击查看详情">
+                <h3>🎂 生日提醒</h3>
+                <div class="module-content" id="birthdayBox">
+                    <!-- JS 动态生成 -->
                 </div>
             </div>
 
@@ -465,26 +462,10 @@
                 </div>
             </div>
 
-            <!-- 投资组合模块 -->
-            <div class="module" id="portfolioModule" style="cursor:pointer;" title="点击查看详情">
-                <h3>📈 投资组合</h3>
-                <div class="module-content" style="display:flex;justify-content:center;gap:65px;font-size:1.2rem;">
-                  <div style="text-align:center;">
-                    <strong>投资周期</strong>
-                    <div id="periodText" style="color:#3498db;font-weight:bold;line-height:1.2;"></div>
-                  </div>
-                  <div style="text-align:center;">
-                    <strong>年化收益率</strong>
-                    <div id="returnText" style="color:#2ecc71;font-weight:bold;line-height:1.2;font-size:1.3rem;"></div>
-                  </div>
-                </div>
-              </div>
-
-            <div class="module" id="birthdayModule" style="cursor:pointer;" title="点击查看详情">
-                <h3>🎂 生日提醒</h3>
-                <div class="module-content" id="birthdayBox">
-                    <!-- JS 动态生成 -->
-                </div>
+            <!-- 年度总结 文字云 -->
+            <div class="module" id="summaryModule" style="cursor:pointer;" title="点击查看详情">
+                <h3>📔 年度总结</h3>
+                <div id="summaryCloud" style="line-height:1.8; text-align:center; padding:10px 0;"></div>
             </div>
 
             <!-- Blog -->
@@ -506,12 +487,6 @@
               </div>
             </div>
 
-            <!-- 年度总结 文字云 -->
-            <div class="module" id="summaryModule" style="cursor:pointer;" title="点击查看详情">
-                <h3>📔 年度总结</h3>
-                <div id="summaryCloud" style="line-height:1.8; text-align:center; padding:10px 0;"></div>
-            </div>
-
             <!-- 胰腺状态模块 -->
             <div class="module" id="pancreasModule" style="cursor:pointer;" title="点击查看详情">
                 <h3>🏥 胰腺状态</h3>
@@ -528,7 +503,6 @@
 <script src="wealth/data.js"></script>
 <script src="wealthggh/data.js"></script>
 <script src="summary/data.js"></script>
-<script src="portfolio/data.js"></script>
 <script src="footprint/data.js"></script>
 <script src="overseas/data.js"></script>
 <script src="weight/data.js"></script>
@@ -749,14 +723,6 @@
                   });
         }
 
-        /* ===== 投资组合渲染 ===== */
-        function renderPortfolio(){
-          if(typeof period === 'undefined' || typeof returnRate === 'undefined') return;
-          const [start, end] = period.split(' - ');
-          document.getElementById('periodText').innerHTML = `${start}<br>${end}`;
-          document.getElementById('returnText').textContent = returnRate;
-        }
-
         // 更新统计
         function updateStats() {
             if(typeof geoData === 'undefined') return;
@@ -853,18 +819,6 @@
             document.getElementById('weight-min').textContent = min.weight.toFixed(1);
         }
 
-        /* ===== 儿子年龄渲染 ===== */
-        const SON_BIRTH = new Date('2024-05-24T11:41:00');
-        function renderSon() {
-            const now = new Date();
-            let yy = now.getFullYear() - SON_BIRTH.getFullYear();
-            let mm = now.getMonth() - SON_BIRTH.getMonth();
-            let dd = now.getDate() - SON_BIRTH.getDate();
-            if (dd < 0) { const prev = new Date(now.getFullYear(), now.getMonth(), 0); dd += prev.getDate(); mm--; }
-            if (mm < 0) { mm += 12; yy--; }
-            document.getElementById('sonAgeDisplay').textContent = `${yy}岁${mm}月`;
-        }
-
         /* ===== 胰腺状态渲染 ===== */
         function renderPancreas(){
             if(typeof MRCP === 'undefined' || typeof biomarkers === 'undefined') return;
@@ -920,9 +874,6 @@
         document.getElementById('summaryModule').addEventListener('click',()=>{
             window.open('summary/index.html','_blank');
         });
-        document.getElementById('portfolioModule').addEventListener('click', () => {
-            window.open('portfolio/index.html', '_blank');
-        });
         document.getElementById('footprintModule').addEventListener('click', () => {
             window.open('footprint/index.html', '_blank');
         });
@@ -938,9 +889,7 @@
         document.getElementById('pancreasModule').addEventListener('click', () => {
             window.open('pancreas/index.html', '_blank');
         });
-        document.getElementById('sonModule').addEventListener('click', () => {
-            window.open('son/index.html', '_blank');
-        });
+        
 
         updateMainDisplay();
         renderEvents();
@@ -948,15 +897,11 @@
         getWealth();
         getWealthggh();
         renderSummaryCloud();
-        renderPortfolio();
         updateStats();
         renderOverseas();
         renderWeight();
         renderPancreas();
-        renderSon();
-
         setInterval(updateMainDisplay, 1000);
-        setInterval(renderSon, 60000);
 
     </script>
 
