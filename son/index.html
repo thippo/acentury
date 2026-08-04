@@ -144,42 +144,6 @@
             color: #4a7faa;
         }
 
-        .finance-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
-        .finance-card {
-            background: #f0f5fa;
-            border-radius: 12px;
-            padding: 14px 16px;
-            border: 1px solid #d6e3ef;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .finance-card .bank {
-            font-size: 0.82rem;
-            color: #6f95b0;
-        }
-        .finance-card .amount {
-            font-size: 1rem;
-            font-weight: bold;
-            color: #2c4056;
-        }
-        .finance-total {
-            grid-column: 1 / -1;
-            background: linear-gradient(135deg, #b8d4e8, #95c0d8);
-            border-radius: 12px;
-            padding: 14px 16px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: #2c4056;
-        }
-        .finance-total .bank { color: #4a7faa; font-size: 0.82rem; }
-        .finance-total .amount { color: #2c4056; font-size: 1.1rem; }
-
         @media (max-width: 768px) {
             .main-grid { grid-template-columns: 1fr; }
         }
@@ -222,10 +186,6 @@
                         <div style="font-size:1.05rem;font-weight:bold;color:#2c4056;margin-bottom:4px;">韩国</div>
                         <div style="font-size:0.82rem;color:#6f95b0;">釜山、首尔</div>
                     </div>
-                </div>
-                <div class="card-box">
-                    <h3 style="color:#2c4056;margin-bottom:16px;font-size:1.1rem;">💰 儿子资产</h3>
-                    <div id="sonFinanceDetails"></div>
                 </div>
             </div>
             <div class="right-col">
@@ -322,38 +282,8 @@
             });
         }
 
-        function renderSonFinance() {
-            const deposits = [
-                ['民生银行', 100000.0, '定期1'],
-                ['建行', 40100.0, '定期'],
-                ['民生银行', 34400.0, '定期6'],
-                ['民生银行', 31803.21, '定期3'],
-                ['民生银行', 21800.0, '定期2'],
-                ['民生银行', 17904.0, '定期7'],
-                ['民生银行', 10000.0, '定期5'],
-                ['民生银行', 1000.0, '定期4'],
-            ];
-            const box = document.getElementById('sonFinanceDetails');
-            const grid = document.createElement('div');
-            grid.className = 'finance-grid';
-            let total = 0;
-            deposits.forEach(item => {
-                total += item[1];
-                const card = document.createElement('div');
-                card.className = 'finance-card';
-                card.innerHTML = `<div><div class="amount">${item[1].toLocaleString()}</div><div class="bank">${item[0]} ${item[2]}</div></div>`;
-                grid.appendChild(card);
-            });
-            const totalCard = document.createElement('div');
-            totalCard.className = 'finance-total';
-            totalCard.innerHTML = `<div><div class="bank">合计</div></div><div><div class="amount">${total.toLocaleString()}</div></div>`;
-            grid.appendChild(totalCard);
-            box.appendChild(grid);
-        }
-
         updateAge();
         renderMilestones();
-        renderSonFinance();
         setInterval(updateAge, 1000);
     </script>
 </body>

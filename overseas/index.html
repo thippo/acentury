@@ -361,6 +361,35 @@
             font-family: 'Inter', monospace;
         }
 
+        .history-card {
+            margin-top: 10px;
+        }
+
+        .history-card .summary-header {
+            margin-bottom: 16px;
+        }
+
+        .org-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .org-item {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .org-item .org-flag { font-size: 1.5rem; }
+        .org-item .org-code { font-size: 1.1rem; font-weight: 700; color: #1e293b; margin-top: 2px; }
+
+        @media (max-width: 768px) {
+            .org-grid { grid-template-columns: 1fr; }
+        }
+
         @media (max-width: 768px) {
             h1 { font-size: 1.75rem; }
             .dashboard-grid { grid-template-columns: 1fr; }
@@ -380,6 +409,30 @@
     <div class="dashboard-grid" id="dashboard">
         <!-- 卡片将通过JS动态生成 -->
     </div>
+
+    <div class="card history-card" id="historyCard">
+        <div class="summary-header">历史资产走势</div>
+
+        <div style="margin-bottom:24px;">
+            <div style="font-size:1.1rem;font-weight:600;color:#1e293b;margin-bottom:4px;text-align:center;">💰 人民币资产</div>
+            <div style="font-size:0.8rem;color:#94a3b8;text-align:center;margin-bottom:8px;">各币种人民币等值</div>
+            <div class="history-chart" id="historyChartRMB" style="width:100%;height:340px;"></div>
+        </div>
+
+        <div style="margin-bottom:24px;">
+            <div style="font-size:1.1rem;font-weight:600;color:#1e293b;margin-bottom:4px;text-align:center;"><span style="letter-spacing:1px;">€</span> 欧元资产</div>
+            <div style="font-size:0.8rem;color:#94a3b8;text-align:center;margin-bottom:8px;">各币种欧元等值</div>
+            <div class="history-chart" id="historyChartEUR" style="width:100%;height:340px;"></div>
+        </div>
+
+        <div style="border-top:1px solid #e2e8f0;padding-top:8px;">
+            <div style="font-size:1.1rem;font-weight:600;color:#1e293b;margin-bottom:4px;text-align:center;">💱 各币种持仓（ORG）</div>
+            <div style="font-size:0.8rem;color:#94a3b8;text-align:center;margin-bottom:12px;">持仓数量变化</div>
+            <div class="org-grid" id="historyOrg">
+                <!-- JS 动态生成三个币种图 -->
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="error-toast" id="errorToast">
@@ -387,6 +440,7 @@
 </div>
 
 <script src="data.js"></script>
+<script src="echarts.min.js"></script>
 
 <script>
     // 状态
@@ -609,10 +663,122 @@
         document.getElementById('errorToast').style.display = 'none';
     };
 
+// 渲染历史资产走势图（RMB 与 EUR 两个图）
+    function renderHistory() {
+        if (typeof history === 'undefined' || !history || Object.keys(history).length === 0) return;
+
+        const dates = Object.keys(history).sort();
+        const currencyCodes = Object.keys(CONFIG.holdings);
+        const colors = { GBP: '#a5c8f0', USD: '#a7e0c0', SGD: '#f3d5a0' };
+        const formatValue = v => v >= 10000 ? (v / 10000).toFixed(1) + '万' : v;
+
+        // 从 history 提取某一字段(unit)下各日期、各币种的值
+        function buildData(unit) {
+            const perCurrency = {};
+            currencyCodes.forEach(code => {
+                perCurrency[code] = dates.map(d => ((history[d][unit] || {})[code] || 0));
+            });
+            return { perCurrency };
+        }
+
+        function renderChart(domId, data, unitName) {
+            const chart = echarts.init(document.getElementById(domId));
+            chart.setOption({
+                tooltip: {
+                    trigger: 'axis',
+                    backgroundColor: '#ffffff',
+                    borderColor: '#e2e8f0',
+                    textStyle: { color: '#1e293b' },
+                    formatter: (params) => {
+                        let html = `<div style="font-weight:700;margin-bottom:4px;">${params[0].axisValue}</div>`;
+                        let total = 0;
+                        const rows = params.map(p => {
+                            total += p.value;
+                            return `<div>${p.marker}${p.seriesName}：${formatNumber(p.value, '')}</div>`;
+                        }).join('');
+                        return html + rows +
+                            `<div style="border-top:1px solid #e2e8f0;margin-top:4px;padding-top:4px;font-weight:700;">合计：${formatNumber(total, '')}</div>`;
+                    }
+                },
+                legend: {
+                    top: 0,
+                    textStyle: { color: '#64748b' }
+                },
+                grid: { left: 60, right: 25, top: 40, bottom: 30 },
+                xAxis: {
+                    type: 'category',
+                    data: dates,
+                    axisLabel: { color: '#94a3b8' },
+                    axisLine: { lineStyle: { color: '#e2e8f0' } }
+                },
+                yAxis: {
+                    type: 'value',
+                    name: unitName,
+                    nameTextStyle: { color: '#94a3b8' },
+                    axisLabel: { color: '#94a3b8', formatter: formatValue },
+                    splitLine: { lineStyle: { color: '#f1f5f9' } }
+                },
+                series: currencyCodes.map(code => ({
+                    name: code, type: 'line', data: data.perCurrency[code],
+                    stack: 'total', smooth: true, symbolSize: 6,
+                    lineStyle: { width: 2 }, itemStyle: { color: colors[code] },
+                    areaStyle: { opacity: 0.7 }
+                }))
+            });
+        }
+
+        renderChart('historyChartRMB', buildData('RMB'), '人民币');
+        renderChart('historyChartEUR', buildData('EUR'), '欧元');
+
+        // 各币种持仓（ORG）三列图表
+        document.getElementById('historyOrg').innerHTML = currencyCodes.map(code => `
+            <div class="org-item">
+                <div class="org-flag">${CONFIG.holdings[code].flag}</div>
+                <div class="org-code">${code}</div>
+                <div id="historyChartOrg${code}" style="width:100%;height:240px;"></div>
+            </div>
+        `).join('');
+
+        currencyCodes.forEach(code => {
+            const orgData = dates.map(d => ((history[d].ORG || {})[code] || 0));
+            const chart = echarts.init(document.getElementById('historyChartOrg' + code));
+            chart.setOption({
+                tooltip: {
+                    trigger: 'axis',
+                    backgroundColor: '#ffffff',
+                    borderColor: '#e2e8f0',
+                    textStyle: { color: '#1e293b' },
+                    formatter: (params) => `${params[0].axisValue}<br/>${code}：${formatNumber(params[0].value, '')}`
+                },
+                grid: { left: 55, right: 20, top: 20, bottom: 30 },
+                xAxis: {
+                    type: 'category',
+                    data: dates,
+                    axisLabel: { color: '#94a3b8' },
+                    axisLine: { lineStyle: { color: '#e2e8f0' } }
+                },
+                yAxis: {
+                    type: 'value',
+                    axisLabel: { color: '#94a3b8', formatter: formatValue },
+                    splitLine: { lineStyle: { color: '#f1f5f9' } }
+                },
+                series: [{
+                    name: code, type: 'line', data: orgData, smooth: true,
+                    symbolSize: 6, lineStyle: { width: 2, color: colors[code] },
+                    itemStyle: { color: colors[code] },
+                    areaStyle: { color: colors[code], opacity: 0.15 }
+                }]
+            });
+        });
+    };
+
     // 初始化 - 仅在页面加载时执行一次
     async function init() {
         await fetchRates();
     };
+
+    // 历史走势图立即渲染，不依赖汇率接口
+    renderHistory();
 
     // 启动
     init();
