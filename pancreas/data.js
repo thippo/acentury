@@ -23,7 +23,8 @@ const biomarkers = { // CEA, CA199, CA125
     '2024-08-13': [0.6, 4.5, 10.5],
     '2025-02-13': ["", "", ""],
     '2025-08-18': [0.7, 4.9, 7.5],
-    '2026-02-24': [0.7, 5.2, 8.2]
+    '2026-02-24': [0.7, 5.2, 8.2],
+    '2026-08-11': [0.6, 3.9, 8.3]
 }
 
 const notes = {
@@ -43,6 +44,7 @@ const blood1 = {
     '2024-08-13': {ALT: 67, TP: 76, Alb: 48, AG: 1.7, PA: 322, TBil: 30.1, DBil: 7.6, GGT: 34, ALP: 76, AST: 31, TBA: 1.9, LD: 156, ChE: 10.1, K: 4.5, Na: 141, Cl: 104, TCO2: 29.7, Ca: 2.4, cCa: 2.24, P: 0.99, Mg: 0.88, Cr: 77, Urea: 4.01, Glu: 5.8, UA: 494},
     '2025-08-18': {ALT: 34, TP: 76, Alb: 48, AG: 1.7, PA: 327, TBil: 37.1, DBil: 9.7, GGT: 27, ALP: 68, AST: 25, TBA: 2.4, LD: 201, ChE: 9.8, K: 4.3, Na: 141, Cl: 104, TCO2: 26.4, Ca: 2.43, cCa: 2.27, P: 0.96, Mg: 0.94, Cr: 82, Urea: 5, Glu: 5.7, UA: 397},
     '2026-02-24': {ALT: 31, TP: 73, Alb: 48, AG: 1.9, PA: 321, TBil: 34.1, DBil: 9.2, GGT: 24, ALP: 62, AST: 23, TBA: 2.2, LD: 155, ChE: 10.2, K: 4.2, Na: 140, Cl: 104, TCO2: 26.9, Ca: 2.47, cCa: 2.31, P: 0.85, Mg: 0.91, Cr: 73, Urea: 4.7, Glu: 6.0, UA: 364},
+    '2026-08-11': {ALT: 47, TP: 74, Alb: 47, AG: 1.7, PA: 310, TBil: 32.4, DBil: 8.5, GGT: 27, ALP: 68, AST: 30, TBA: 2.0, LD: 163, ChE: 10.1, K: 4.3, Na: 140, Cl: 103, TCO2: 30.5, Ca: 2.41, cCa: 2.27, P: 0.81, Mg: 0.91, Cr: 73, Urea: 5.1, Glu: 5.7, UA: 385},
 }
 
 const blood1_dsc = {
@@ -78,6 +80,7 @@ const blood2 = {
     "2024-08-13": {WBC: 6.37, LY1: 48, MONO1: 5.3, NEUT1: 44.2, EOS1: 1.9, BASO1: 0.6, LY2: 3.06, MONO2: 0.34, NEUT2: 2.81, EOS2: 0.12, BASO2: 0.04, RBC: 5.78, HGB: 173, HCT: 49.6, MCV: 85.8, MCHC: 349, MCH: 29.9, RDW_S: 37.1, RDW_C: 12, PLT: 313, PCT: 0.31, PDW: 11.3, MPV: 10, P_LCR: 25.1},
     "2025-08-18": {WBC: 7.72, LY1: 50.1, MONO1: 4.5, NEUT1: 43, EOS1: 1.9, BASO1: 0.5, LY2: 3.87, MONO2: 0.35, NEUT2: 3.31, EOS2: 0.15, BASO2: 0.04, RBC: 5.7, HGB: 173, HCT: 49.3, MCV: 86.5, MCHC: 351, MCH: 30.4, RDW_S: 38.3, RDW_C: 12.2, PLT: 299, PCT: 0.31, PDW: 12.3, MPV: 10.2, P_LCR: 27.8},
     "2026-02-24": {WBC: 7.26, LY1: 51.8, MONO1: 4.7, NEUT1: 41, EOS1: 1.9, BASO1: 0.6, LY2: 3.76, MONO2: 0.34, NEUT2: 2.98, EOS2: 0.14, BASO2: 0.04, RBC: 5.74, HGB: 170, HCT: 49.5, MCV: 86.2, MCHC: 343, MCH: 29.6, RDW_S: 36.4, RDW_C: 11.6, PLT: 298, PCT: 0.31, PDW: 12, MPV: 10.3, P_LCR: 28.5},
+    "2024-08-11": {WBC: 6.49, LY1: 52.5, MONO1: 4.6, NEUT1: 40.2, EOS1: 2.2, BASO1: 0.5, LY2: 3.41, MONO2: 0.3, NEUT2: 2.61, EOS2: 0.14, BASO2: 0.03, RBC: 5.64, HGB: 167, HCT: 48.9, MCV: 86.7, MCHC: 342, MCH: 29.6, RDW_S: 37.5, RDW_C: 11.8, PLT: 287, PCT: 0.29, PDW: 11.0, MPV: 10.2, P_LCR: 26.0},
 }
 
 const blood2_dsc = {
