@@ -60,6 +60,8 @@
                                 <li style="margin: 0.0em 0;">2026-07-18 爸爸妈妈带你去了国家动物博物馆</li>
                                 <li style="margin: 0.0em 0;">2026-07-26 爸爸妈妈带你去了北京汽车博物馆</li>
                                 <li style="margin: 0.0em 0;">2026-08-01 爸爸妈妈带你去了中国国家地理探索中心·恐龙星球</li>
+                                <li style="margin: 0.0em 0;">2026-08-19 你去托儿所的第一天，接送都没有哭</li>
+                                <li style="margin: 0.0em 0;">2026-08-23 爸爸妈妈带你去了北京海洋馆</li>
                                 <li style="margin: 0.0em 0;"></li>
                             </ul>
                         </li>
