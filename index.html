@@ -473,15 +473,15 @@
               <h3>📝 Blog</h3>
               <div class="module-content resume-grid">
                 <div class="stat-item">
-                  <div class="stat-value">3</div>
+                  <div class="stat-value" id="blogCategories">--</div>
                   <div class="stat-label">分类</div>
                 </div>
                 <div class="stat-item">
-                  <div class="stat-value">2</div>
+                  <div class="stat-value" id="blogTags">--</div>
                   <div class="stat-label">标签</div>
                 </div>
                 <div class="stat-item">
-                  <div class="stat-value">7</div>
+                  <div class="stat-value" id="blogPosts">--</div>
                   <div class="stat-label">文章</div>
                 </div>
               </div>
@@ -507,6 +507,7 @@
 <script src="overseas/data.js"></script>
 <script src="weight/data.js"></script>
 <script src="pancreas/data.js"></script>
+<script src="blog/data.js"></script>
 
 <script>
         /* ====== 百年时光轴主逻辑 ====== */
@@ -699,7 +700,7 @@
             `;
         }
 
-        /* ========== 年度总结 文字云（仅最新3年） ========== */
+        /* ========== 年度总结 文字云（最新12年） ========== */
         function renderSummaryCloud(){
             if(typeof summarydata === 'undefined') return;
             const cloudBox = document.getElementById('summaryCloud');
@@ -819,6 +820,20 @@
             document.getElementById('weight-min').textContent = min.weight.toFixed(1);
         }
 
+        /* ===== Blog 统计（从数据动态计算） ===== */
+        function renderBlogStats(){
+            if(typeof posts === 'undefined') return;
+            const cats = new Set();
+            const tags = new Set();
+            posts.forEach(p => {
+                cats.add(p.category);
+                (p.tags || []).forEach(t => tags.add(t));
+            });
+            document.getElementById('blogCategories').textContent = cats.size;
+            document.getElementById('blogTags').textContent = tags.size;
+            document.getElementById('blogPosts').textContent = posts.length;
+        }
+
         /* ===== 胰腺状态渲染 ===== */
         function renderPancreas(){
             if(typeof MRCP === 'undefined' || typeof biomarkers === 'undefined') return;
@@ -900,6 +915,7 @@
         updateStats();
         renderOverseas();
         renderWeight();
+        renderBlogStats();
         renderPancreas();
         setInterval(updateMainDisplay, 1000);
 

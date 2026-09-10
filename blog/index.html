@@ -530,6 +530,22 @@
             color: var(--text-secondary);
         }
 
+        .article-content ul,
+        .article-content ol {
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+            list-style: none;
+        }
+
+        .article-content li {
+            margin-bottom: 0.4rem;
+        }
+
+        .article-content li ul {
+            margin-top: 0.4rem;
+            margin-bottom: 0;
+        }
+
         /* 文章详情页标签容器 */
         .article-tags-container {
             display: flex;
@@ -712,6 +728,7 @@
     </footer>
 
    	<script src="data.js"></script>
+   	<script src="../lib/marked.umd.js"></script>
 
     <script>
 
@@ -951,7 +968,7 @@
             document.getElementById('articleTitle').textContent = post.title;
             document.getElementById('articleDate').textContent = post.date;
             document.getElementById('articleCategory').textContent = post.category;
-            document.getElementById('articleContent').innerHTML = post.content;
+            document.getElementById('articleContent').innerHTML = marked.parse(post.content);
             
             const tagsContainer = document.getElementById('articleTags');
             tagsContainer.innerHTML = post.tags.map(tag => 

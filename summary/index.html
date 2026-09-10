@@ -258,18 +258,21 @@ years.forEach((year, index) => {
             `;
         }
 
+        function selectYear(year) {
+            const data = summarydata[year];
+            document.querySelector('.year-title').innerHTML = `${year} <span class="year-subtitle">${data.title}</span>`;
+            renderContent(year);
+        }
+
         // 初始化
-        renderContent('2026');
+        selectYear(years[0]);
 
         // 年份切换
         document.querySelectorAll('.year-btn').forEach(btn => {
             btn.addEventListener('click', function() {
                 document.querySelectorAll('.year-btn').forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
-                const year = this.dataset.year;
-                const data = summarydata[year];
-                document.querySelector('.year-title').innerHTML = `${year} <span class="year-subtitle">${data.title}</span>`;
-                renderContent(year);
+                selectYear(this.dataset.year);
             });
         });
     </script>

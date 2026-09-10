@@ -364,7 +364,6 @@
         let currentLayer;
         let markers = [];
         let failedTiles = 0;
-        let totalTiles = 0;
 
         // 地图源配置
 
@@ -415,10 +414,6 @@
             }).setView([30, 0], 3);
 
             // 监听瓦片加载事件
-            map.on('tileloadstart', function() {
-                totalTiles++;
-            });
-
             map.on('tileerror', function(e) {
                 failedTiles++;
                 if (failedTiles > 3) {
