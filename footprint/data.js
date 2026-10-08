@@ -132,6 +132,9 @@ const geoData = [
                     {
                         id: "cn-qhd-wlha", name: "蔚蓝海岸", type: "spot", lng: 119.405878, lat: 39.781538, date: "2025-05-22", description: "",
                     },
+                    {
+                        id: "cn-qhd-sljljd", name: "秦皇岛首旅京伦酒店", type: "spot", lng: 119.565220, lat: 39.913421, date: "2026-10-01", description: "",
+                    },
                 ]
             },
             {
@@ -258,7 +261,38 @@ const geoData = [
                     },
                 ]
             },
-
+            {
+                id: "cn-jz",
+                name: "锦州",
+                type: "city",
+                lat: 41.126545,
+                lng: 121.201666,
+                zoom: 10,
+                children: [
+                    {
+                        id: "cn-jz-dshyaq", name: "东晟花园A区", type: "spot", lng: 121.201666, lat: 41.126545, date: "2026-10-02", description: "",
+                    },
+                    {
+                        id: "cn-jz-jzzydjxedhyjd", name: "锦州中央大街希尔顿花园酒店", type: "spot", lng: 121.201666, lat: 41.126545, date: "2026-10-02", description: "",
+                    },
+                    {
+                        id: "cn-jz-lszyjng", name: "辽沈战役纪念馆", type: "spot", lng: 121.154729, lat: 41.135017, date: "2026-10-03", description: "",
+                    },
+                ]
+            },
+            {
+                id: "cn-ts",
+                name: "唐山",
+                type: "city",
+                lat: 39.974413,
+                lng: 118.699865,
+                zoom: 10,
+                children: [
+                    {
+                        id: "cn-ts-tygdjq", name: "天元谷度假区", type: "spot", lng: 118.699865, lat: 39.974413, date: "2026-10-02", description: "",
+                    },
+                ]
+            },
         ]
     },
     {
