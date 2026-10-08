@@ -273,7 +273,7 @@ const geoData = [
                         id: "cn-jz-dshyaq", name: "东晟花园A区", type: "spot", lng: 121.201666, lat: 41.126545, date: "2026-10-02", description: "",
                     },
                     {
-                        id: "cn-jz-jzzydjxedhyjd", name: "锦州中央大街希尔顿花园酒店", type: "spot", lng: 121.201666, lat: 41.126545, date: "2026-10-02", description: "",
+                        id: "cn-jz-jzzydjxedhyjd", name: "锦州中央大街希尔顿花园酒店", type: "spot", lng: 121.144780, lat: 41.121572, date: "2026-10-02", description: "",
                     },
                     {
                         id: "cn-jz-lszyjng", name: "辽沈战役纪念馆", type: "spot", lng: 121.154729, lat: 41.135017, date: "2026-10-03", description: "",
