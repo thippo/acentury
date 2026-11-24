@@ -1,8 +1,8 @@
 const CONFIG = {
     holdings: {
-        GBP: { amount: 533.51, name: '英镑', flag: '🇬🇧' },
-        USD: { amount: 14614.71, name: '美元', flag: '🇺🇸' },
-        SGD: { amount: 14886.42, name: '新加坡元', flag: '🇸🇬' }
+        GBP: { amount: 533.59, name: '英镑', flag: '🇬🇧' },
+        USD: { amount: 14059.06, name: '美元', flag: '🇺🇸' },
+        SGD: { amount: 14908.61, name: '新加坡元', flag: '🇸🇬' }
     },
     date: "2026-05-31",
     targetEUR: 500000,
@@ -12,6 +12,11 @@ const CONFIG = {
 };
 
 const history = {
+    "2026-11-16": {
+        ORG: {GBP: 533.59, USD: 14059.06, SGD: 14908.61},
+        RMB: {GBP: 4709.304, USD: 93892.03, SGD: 77308.53},
+        EUR: {GBP: 639.4, USD: 12748.76, SGD: 10497.03}
+        },
     "2026-10-08": {
         ORG: {GBP: 533.51, USD: 14614.71, SGD: 14886.42},
         RMB: {GBP: 4732.64, USD: 98101.24, SGD: 78072.58},
